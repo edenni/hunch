@@ -7,12 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F25196C626A309DF0086E3F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196C526A309DF0086E3F7 /* ContentView.swift */; };
+		F25196C826A30AB00086E3F7 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196C726A30AB00086E3F7 /* SettingView.swift */; };
+		F25196CB26A30CEE0086E3F7 /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196CA26A30CEE0086E3F7 /* Color+hex.swift */; };
+		F25196D126A3551D0086E3F7 /* UIScreen+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196D026A3551D0086E3F7 /* UIScreen+ScreenSize.swift */; };
+		F25196D926A362280086E3F7 /* Tamil MN.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F25196D826A362280086E3F7 /* Tamil MN.ttc */; };
+		F25196DA26A362290086E3F7 /* Tamil MN.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F25196D826A362280086E3F7 /* Tamil MN.ttc */; };
+		F25196DB26A362290086E3F7 /* Tamil MN.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F25196D826A362280086E3F7 /* Tamil MN.ttc */; };
+		F25196DD26A3F32F0086E3F7 /* ShopMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196DC26A3F32F0086E3F7 /* ShopMapView.swift */; };
+		F25196DE26A3F32F0086E3F7 /* ShopMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196DC26A3F32F0086E3F7 /* ShopMapView.swift */; };
+		F25196DF26A3F32F0086E3F7 /* ShopMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196DC26A3F32F0086E3F7 /* ShopMapView.swift */; };
+		F25196E126A4154E0086E3F7 /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196E026A4154E0086E3F7 /* VersionView.swift */; };
+		F25196E226A4154E0086E3F7 /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196E026A4154E0086E3F7 /* VersionView.swift */; };
+		F25196E326A4154E0086E3F7 /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196E026A4154E0086E3F7 /* VersionView.swift */; };
 		F25EFD4F26917A170025C748 /* miyagi_couponApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EFD4E26917A170025C748 /* miyagi_couponApp.swift */; };
-		F25EFD5126917A170025C748 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EFD5026917A170025C748 /* ContentView.swift */; };
 		F25EFD5326917A220025C748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F25EFD5226917A220025C748 /* Assets.xcassets */; };
 		F25EFD5626917A220025C748 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F25EFD5526917A220025C748 /* Preview Assets.xcassets */; };
 		F25EFD6126917A220025C748 /* miyagi_couponTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EFD6026917A220025C748 /* miyagi_couponTests.swift */; };
 		F25EFD6C26917A220025C748 /* miyagi_couponUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EFD6B26917A220025C748 /* miyagi_couponUITests.swift */; };
+		F25EFD7A269192520025C748 /* ShopListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25EFD79269192520025C748 /* ShopListItem.swift */; };
+		F261FDC726A1D9F300901051 /* ShopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDC626A1D9F300901051 /* ShopListView.swift */; };
+		F261FDC926A1DA9000901051 /* ShopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDC826A1DA9000901051 /* ShopDetailView.swift */; };
+		F261FDCE26A1DBBC00901051 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDCD26A1DBBC00901051 /* Shop.swift */; };
+		F261FDD126A1DCF400901051 /* ShopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDD026A1DCF400901051 /* ShopListViewModel.swift */; };
+		F29602D126A477D200F1464B /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29602D026A477D200F1464B /* CouponView.swift */; };
+		F29602D326A477E100F1464B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29602D226A477E100F1464B /* Coupon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +52,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F25196C526A309DF0086E3F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F25196C726A30AB00086E3F7 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		F25196CA26A30CEE0086E3F7 /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
+		F25196D026A3551D0086E3F7 /* UIScreen+ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+ScreenSize.swift"; sourceTree = "<group>"; };
+		F25196D826A362280086E3F7 /* Tamil MN.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Tamil MN.ttc"; path = "../../../../../../../System/Library/Fonts/Supplemental/Tamil MN.ttc"; sourceTree = "<group>"; };
+		F25196DC26A3F32F0086E3F7 /* ShopMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMapView.swift; sourceTree = "<group>"; };
+		F25196E026A4154E0086E3F7 /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		F25EFD4B26917A170025C748 /* miyagi_coupon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miyagi_coupon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25EFD4E26917A170025C748 /* miyagi_couponApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miyagi_couponApp.swift; sourceTree = "<group>"; };
-		F25EFD5026917A170025C748 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F25EFD5226917A220025C748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F25EFD5526917A220025C748 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F25EFD5726917A220025C748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +70,14 @@
 		F25EFD6726917A220025C748 /* miyagi_couponUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = miyagi_couponUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25EFD6B26917A220025C748 /* miyagi_couponUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miyagi_couponUITests.swift; sourceTree = "<group>"; };
 		F25EFD6D26917A220025C748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F25EFD79269192520025C748 /* ShopListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListItem.swift; sourceTree = "<group>"; };
+		F261FDC626A1D9F300901051 /* ShopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListView.swift; sourceTree = "<group>"; };
+		F261FDC826A1DA9000901051 /* ShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailView.swift; sourceTree = "<group>"; };
+		F261FDCD26A1DBBC00901051 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		F261FDD026A1DCF400901051 /* ShopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListViewModel.swift; sourceTree = "<group>"; };
+		F29602D026A477D200F1464B /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
+		F29602D226A477E100F1464B /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
+		F29602D926A59B9E00F1464B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +105,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F25196C926A30CC50086E3F7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F25196CA26A30CEE0086E3F7 /* Color+hex.swift */,
+				F25196D026A3551D0086E3F7 /* UIScreen+ScreenSize.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F25196D326A35F340086E3F7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F25196D826A362280086E3F7 /* Tamil MN.ttc */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F25EFD4226917A170025C748 = {
 			isa = PBXGroup;
 			children = (
+				F29602D926A59B9E00F1464B /* README.md */,
 				F25EFD4D26917A170025C748 /* miyagi_coupon */,
 				F25EFD5F26917A220025C748 /* miyagi_couponTests */,
 				F25EFD6A26917A220025C748 /* miyagi_couponUITests */,
@@ -95,8 +146,12 @@
 		F25EFD4D26917A170025C748 /* miyagi_coupon */ = {
 			isa = PBXGroup;
 			children = (
+				F25196C926A30CC50086E3F7 /* Utils */,
+				F261FDCF26A1DCD700901051 /* ViewModels */,
+				F261FDCC26A1DBA400901051 /* Model */,
+				F261FDC526A1D90100901051 /* View */,
 				F25EFD4E26917A170025C748 /* miyagi_couponApp.swift */,
-				F25EFD5026917A170025C748 /* ContentView.swift */,
+				F25196D326A35F340086E3F7 /* Fonts */,
 				F25EFD5226917A220025C748 /* Assets.xcassets */,
 				F25EFD5726917A220025C748 /* Info.plist */,
 				F25EFD5426917A220025C748 /* Preview Content */,
@@ -130,6 +185,38 @@
 			path = miyagi_couponUITests;
 			sourceTree = "<group>";
 		};
+		F261FDC526A1D90100901051 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F25EFD79269192520025C748 /* ShopListItem.swift */,
+				F261FDC626A1D9F300901051 /* ShopListView.swift */,
+				F261FDC826A1DA9000901051 /* ShopDetailView.swift */,
+				F25196C526A309DF0086E3F7 /* ContentView.swift */,
+				F25196C726A30AB00086E3F7 /* SettingView.swift */,
+				F25196DC26A3F32F0086E3F7 /* ShopMapView.swift */,
+				F25196E026A4154E0086E3F7 /* VersionView.swift */,
+				F29602D026A477D200F1464B /* CouponView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F261FDCC26A1DBA400901051 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F261FDCD26A1DBBC00901051 /* Shop.swift */,
+				F29602D226A477E100F1464B /* Coupon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F261FDCF26A1DCD700901051 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F261FDD026A1DCF400901051 /* ShopListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +233,8 @@
 			dependencies = (
 			);
 			name = miyagi_coupon;
+			packageProductDependencies = (
+			);
 			productName = miyagi_coupon;
 			productReference = F25EFD4B26917A170025C748 /* miyagi_coupon.app */;
 			productType = "com.apple.product-type.application";
@@ -215,8 +304,11 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = F25EFD4226917A170025C748;
+			packageReferences = (
+			);
 			productRefGroup = F25EFD4C26917A170025C748 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25EFD5626917A220025C748 /* Preview Assets.xcassets in Resources */,
+				F25196D926A362280086E3F7 /* Tamil MN.ttc in Resources */,
 				F25EFD5326917A220025C748 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25196DA26A362290086E3F7 /* Tamil MN.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25196DB26A362290086E3F7 /* Tamil MN.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +354,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25EFD5126917A170025C748 /* ContentView.swift in Sources */,
+				F261FDC926A1DA9000901051 /* ShopDetailView.swift in Sources */,
+				F25196E126A4154E0086E3F7 /* VersionView.swift in Sources */,
+				F29602D126A477D200F1464B /* CouponView.swift in Sources */,
+				F25196C626A309DF0086E3F7 /* ContentView.swift in Sources */,
+				F25196CB26A30CEE0086E3F7 /* Color+hex.swift in Sources */,
+				F25196C826A30AB00086E3F7 /* SettingView.swift in Sources */,
+				F25EFD7A269192520025C748 /* ShopListItem.swift in Sources */,
+				F261FDD126A1DCF400901051 /* ShopListViewModel.swift in Sources */,
+				F25196DD26A3F32F0086E3F7 /* ShopMapView.swift in Sources */,
+				F261FDCE26A1DBBC00901051 /* Shop.swift in Sources */,
+				F25196D126A3551D0086E3F7 /* UIScreen+ScreenSize.swift in Sources */,
+				F261FDC726A1D9F300901051 /* ShopListView.swift in Sources */,
 				F25EFD4F26917A170025C748 /* miyagi_couponApp.swift in Sources */,
+				F29602D326A477E100F1464B /* Coupon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25EFD6126917A220025C748 /* miyagi_couponTests.swift in Sources */,
+				F25196E226A4154E0086E3F7 /* VersionView.swift in Sources */,
+				F25196DE26A3F32F0086E3F7 /* ShopMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25EFD6C26917A220025C748 /* miyagi_couponUITests.swift in Sources */,
+				F25196E326A4154E0086E3F7 /* VersionView.swift in Sources */,
+				F25196DF26A3F32F0086E3F7 /* ShopMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

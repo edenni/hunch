@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct miyagi_couponApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
