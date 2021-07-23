@@ -29,10 +29,10 @@
 - 近くの店舗はpriority_queueで
 - 画像のサイズ次第serializeして直接firebaseに入れるのもありかな
 - Tamil MN はiOSではシステムフォントに入ってない（macOSにはあるけど）、一応インストールした
-- 店の名前はめっちゃ長かったら超えた部分を非表示にする？
+- 店の名前はめっちゃ長かったら超えた部分を非表示にする？ -> Dont' change cards' size.
 
 
-## TODO 
+## TODO
 
 週~20h
 
@@ -44,5 +44,3 @@
 ### 7/27 - 8/2
 - viewmodel
 - notification
-
-
