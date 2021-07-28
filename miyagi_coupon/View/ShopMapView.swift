@@ -32,13 +32,34 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 }
 
+struct IdentifiablePlace: Identifiable {
+    let id: UUID
+    let location: CLLocationCoordinate2D
+    init(id: UUID = UUID(), lat: Double, long: Double) {
+        self.id = id
+        self.location = CLLocationCoordinate2D(
+            latitude: lat,
+            longitude: long)
+    }
+}
+
 struct ShopMapView: View {
     @ObservedObject var locationManager = LocationManager()
-
+    let place = IdentifiablePlace(lat: 38.264802, long: 140.878150)
+    
     var body: some View {
-        Map(coordinateRegion: $locationManager.region, showsUserLocation: true)
+        Map(coordinateRegion: $locationManager.region,
+            showsUserLocation: true,
+            annotationItems: [place]) {
+            place in
+                MapAnnotation(coordinate: place.location) {
+                    Rectangle().stroke(Color.blue)
+                    .frame(width: 20, height: 20)
+                }
+        }
         .edgesIgnoringSafeArea(.all)
     }
+    
 }
 
 struct ShopMapView_Previews: PreviewProvider {

@@ -53,6 +53,7 @@ struct ShopDetailView: View {
                     
                     ForEach(coupons) { coupon in
                         CouponView(coupon: coupon)
+                            .padding(.bottom, 30)
                     }
                 }
                 .padding(.top, 23)
