@@ -8,30 +8,6 @@
 import SwiftUI
 import MapKit
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion()
-    private let manager = CLLocationManager()
-    
-    override init() {
-        super.init()
-        manager.requestAlwaysAuthorization()
-//        manager.requestWhenInUseAuthorization()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locations.last.map {
-            let center = CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
-//            print($0.coordinate.latitude, $0.coordinate.longitude)
-            
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            region = MKCoordinateRegion(center: center, span: span)
-        }
-    }
-}
-
 struct IdentifiablePlace: Identifiable {
     let id: UUID
     let location: CLLocationCoordinate2D
@@ -45,23 +21,37 @@ struct IdentifiablePlace: Identifiable {
 
 struct ShopMapView: View {
     @ObservedObject var locationManager = LocationManager()
-    let place = IdentifiablePlace(lat: 38.264802, long: 140.880050)
+    let places: [IdentifiablePlace] = Shop.data.map() { shop in
+        IdentifiablePlace(lat: shop.latitude, long: shop.longitude)
+    }
     @State private var showDetail = false
+    
+    init() {
+        NotificationManager.shared.requestAuthorization { granted in
+          // 2
+          if granted {
+             print("auth granted")
+          }
+        }
+        Shop.data.map() { shop in
+            NotificationManager.shared.scheduleNotification(shop: shop)
+        }
+    }
     
     var body: some View {
         NavigationView {
             ZStack(alignment:.bottom) {
-                Button(action: {
-                    showDetail = false
-                    print("clicked")
-                }) {
-                    Spacer()
-                }
-                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+//                Button(action: {
+//                    showDetail = false
+//                    print("clicked")
+//                }) {
+//                    Spacer()
+//                }
+//                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
                 
                 Map(coordinateRegion: $locationManager.region,
                     showsUserLocation: true,
-                    annotationItems: [place]) {
+                    annotationItems: places) {
                     place in
                         MapAnnotation(coordinate: place.location) {
                             Button(action: {
@@ -73,6 +63,7 @@ struct ShopMapView: View {
                             .frame(width: 10, height: 30)
                         }
                 }
+                
                 if showDetail {
                     ZStack {
                         
@@ -87,7 +78,6 @@ struct ShopMapView: View {
             .edgesIgnoringSafeArea(.all)
         }
     }
-    
 }
 
 struct ShopMapView_Previews: PreviewProvider {

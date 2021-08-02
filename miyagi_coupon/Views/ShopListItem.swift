@@ -53,15 +53,14 @@ struct ShopListItem: View {
     }
 }
 
-struct ShopListItem_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopListItem(shop: Shop(
-            id:0,
-            name: "お肉本舗",
-            imageUrl: "megumin",
-            distance: 300,
-            values: "1000 - 2000"
-        ))
-        .previewDevice("iPhone 12 Pro")
-    }
-}
+//struct ShopListItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopListItem(shop: Shop(
+//            name: "お肉本舗",
+//            imageUrl: "megumin",
+//            distance: 300,
+//            values: "1000 - 2000"
+//        ))
+//        .previewDevice("iPhone 12 Pro")
+//    }
+//}

@@ -15,12 +15,12 @@ final class ShopListViewModel: ObservableObject {
     enum Input {
         case onAppear
     }
+    
     func apply(_ input: Input) {
         switch input {
         case .onAppear: onAppearSubject.send(())
         }
     }
+    
     private let onAppearSubject = PassthroughSubject<Void, Never>()
-    
-    
 }

@@ -34,6 +34,9 @@
 		F261FDD126A1DCF400901051 /* ShopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDD026A1DCF400901051 /* ShopListViewModel.swift */; };
 		F27C7EBB26B3CBC70072CC7A /* TextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EBA26B3CBC70072CC7A /* TextFieldAlertView.swift */; };
 		F27C7EBF26B71C700072CC7A /* MTSlideToOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EBE26B71C700072CC7A /* MTSlideToOpen.swift */; };
+		F27C7EC126B84F1C0072CC7A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EC026B84F1C0072CC7A /* NotificationManager.swift */; };
+		F27C7EC326B857E70072CC7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EC226B857E70072CC7A /* LocationManager.swift */; };
+		F27C7EC526B861120072CC7A /* Appdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EC426B861120072CC7A /* Appdelegate.swift */; };
 		F29602D126A477D200F1464B /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29602D026A477D200F1464B /* CouponView.swift */; };
 		F29602D326A477E100F1464B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29602D226A477E100F1464B /* Coupon.swift */; };
 /* End PBXBuildFile section */
@@ -56,8 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		54E7404AE3EB3AB05143C2CC /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
-		A915C7424164321D6D5988CD /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		54E7404AE3EB3AB05143C2CC /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		A915C7424164321D6D5988CD /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		F25196C526A309DF0086E3F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F25196C726A30AB00086E3F7 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F25196CA26A30CEE0086E3F7 /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
@@ -83,6 +86,9 @@
 		F261FDD026A1DCF400901051 /* ShopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListViewModel.swift; sourceTree = "<group>"; };
 		F27C7EBA26B3CBC70072CC7A /* TextFieldAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldAlertView.swift; sourceTree = "<group>"; };
 		F27C7EBE26B71C700072CC7A /* MTSlideToOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSlideToOpen.swift; sourceTree = "<group>"; };
+		F27C7EC026B84F1C0072CC7A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F27C7EC226B857E70072CC7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F27C7EC426B861120072CC7A /* Appdelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appdelegate.swift; sourceTree = "<group>"; };
 		F29602D026A477D200F1464B /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
 		F29602D226A477E100F1464B /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		F29602D926A59B9E00F1464B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 			children = (
 				F25196CA26A30CEE0086E3F7 /* Color+hex.swift */,
 				F25196D026A3551D0086E3F7 /* UIScreen+ScreenSize.swift */,
+				F27C7EC026B84F1C0072CC7A /* NotificationManager.swift */,
+				F27C7EC226B857E70072CC7A /* LocationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -166,9 +174,10 @@
 			children = (
 				F25196C926A30CC50086E3F7 /* Utils */,
 				F261FDCF26A1DCD700901051 /* ViewModels */,
-				F261FDCC26A1DBA400901051 /* Model */,
-				F261FDC526A1D90100901051 /* View */,
+				F261FDCC26A1DBA400901051 /* Models */,
+				F261FDC526A1D90100901051 /* Views */,
 				F25EFD4E26917A170025C748 /* miyagi_couponApp.swift */,
+				F27C7EC426B861120072CC7A /* Appdelegate.swift */,
 				F25196D326A35F340086E3F7 /* Fonts */,
 				F25EFD5226917A220025C748 /* Assets.xcassets */,
 				F25EFD5726917A220025C748 /* Info.plist */,
@@ -203,7 +212,7 @@
 			path = miyagi_couponUITests;
 			sourceTree = "<group>";
 		};
-		F261FDC526A1D90100901051 /* View */ = {
+		F261FDC526A1D90100901051 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				F27C7EBA26B3CBC70072CC7A /* TextFieldAlertView.swift */,
@@ -217,16 +226,16 @@
 				F29602D026A477D200F1464B /* CouponView.swift */,
 				F27C7EBE26B71C700072CC7A /* MTSlideToOpen.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		F261FDCC26A1DBA400901051 /* Model */ = {
+		F261FDCC26A1DBA400901051 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				F261FDCD26A1DBBC00901051 /* Shop.swift */,
 				F29602D226A477E100F1464B /* Coupon.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F261FDCF26A1DCD700901051 /* ViewModels */ = {
@@ -373,18 +382,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F261FDC926A1DA9000901051 /* ShopDetailView.swift in Sources */,
+				F27C7EC126B84F1C0072CC7A /* NotificationManager.swift in Sources */,
 				F25196E126A4154E0086E3F7 /* VersionView.swift in Sources */,
 				F29602D126A477D200F1464B /* CouponView.swift in Sources */,
 				F25196C626A309DF0086E3F7 /* ContentView.swift in Sources */,
 				F25196CB26A30CEE0086E3F7 /* Color+hex.swift in Sources */,
 				F25196C826A30AB00086E3F7 /* SettingView.swift in Sources */,
 				F27C7EBF26B71C700072CC7A /* MTSlideToOpen.swift in Sources */,
+				F27C7EC326B857E70072CC7A /* LocationManager.swift in Sources */,
 				F25EFD7A269192520025C748 /* ShopListItem.swift in Sources */,
 				F261FDD126A1DCF400901051 /* ShopListViewModel.swift in Sources */,
 				F25196DD26A3F32F0086E3F7 /* ShopMapView.swift in Sources */,
 				F27C7EBB26B3CBC70072CC7A /* TextFieldAlertView.swift in Sources */,
 				F261FDCE26A1DBBC00901051 /* Shop.swift in Sources */,
 				F25196D126A3551D0086E3F7 /* UIScreen+ScreenSize.swift in Sources */,
+				F27C7EC526B861120072CC7A /* Appdelegate.swift in Sources */,
 				F261FDC726A1D9F300901051 /* ShopListView.swift in Sources */,
 				F25EFD4F26917A170025C748 /* miyagi_couponApp.swift in Sources */,
 				F29602D326A477E100F1464B /* Coupon.swift in Sources */,

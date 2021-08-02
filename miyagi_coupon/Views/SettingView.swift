@@ -50,8 +50,6 @@ struct SettingView: View {
                         print("パスワード認証リクエスト")
                     }
                 )
-                
-                Spacer()
             }
             }
             .navigationBarTitle("設定")

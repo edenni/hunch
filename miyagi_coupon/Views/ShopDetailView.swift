@@ -60,6 +60,31 @@ struct ShopDetailView: View {
                         CouponView(coupon: coupon)
                             .padding(.bottom, 30)
                     }
+                    
+                    Button("仮通知機能") {
+                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                            if success {
+                                print("All set!")
+                            } else if let error = error {
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
+                        let content = UNMutableNotificationContent()
+                        content.title = "店舗みっけ"
+                        content.subtitle = "お肉本店"
+                        content.sound = UNNotificationSound.default
+
+                        // show this notification five seconds from now
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+                        // choose a random identifier
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                        // add our notification request
+                        UNUserNotificationCenter.current().add(request)
+                    }
+//                    .hidden()
                 }
                 .padding(.top, 23)
                 .padding(.bottom, 0)
