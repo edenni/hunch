@@ -16,6 +16,8 @@ struct SettingView: View {
     
     var body: some View {
         NavigationView {
+            ZStack {
+                Color(hex: 0xf3f3f3).edgesIgnoringSafeArea(.all)
             VStack {
                 List {
                     Toggle("通知", isOn: $showMessage)
@@ -24,13 +26,15 @@ struct SettingView: View {
                         Text("バージョン")
                     }
                 }
-                .frame(height: 300)
+                .frame(height: 250)
                 
                 Button("店舗管理者としてログイン") {
                     isShowingAlert = true
                 }
-                .frame(width: 300, height: 100, alignment: .center)
-                .border(Color.black)
+                .frame(width: 250, height: 60, alignment: .center)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.black, lineWidth: 1))
                 TextFieldAlertView(
                     un: $un,
                     pw: $pw,
@@ -47,8 +51,8 @@ struct SettingView: View {
                     }
                 )
                 
-            
                 Spacer()
+            }
             }
             .navigationBarTitle("設定")
         }

@@ -20,6 +20,15 @@ struct ShopListView: View {
                 Color(hex: 0xf3f3f3).edgesIgnoringSafeArea(.all)
                 VStack(spacing:0) {
                     ScrollView(.vertical, showsIndicators: false) {
+//                        HStack {
+//                            Spacer()
+//                            Image(systemName: "person.crop.circle")
+//                                .resizable()
+//                                .frame(width: 30, height: 30)
+//                                .foregroundColor(Color(hex: 0x4a4a4a))
+//                                .padding()
+//                        }
+                        
                         Text("今日なに食べる？")
                             .padding(EdgeInsets(top: 21, leading: 0.08*screenWidth, bottom: 0, trailing: 0))
                             .frame(maxWidth: .infinity, alignment: .leading)

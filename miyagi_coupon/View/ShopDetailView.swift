@@ -21,7 +21,11 @@ struct ShopDetailView: View {
                     Image(shop.imageUrl)
                         .resizable()
                         .frame(width:sw, height: 0.75*sw)
-                    
+//                    HStack {
+//                        Spacer()
+//                        Image(systemName: "square.and.pencil")
+//                        Image(systemName: "lock")
+//                    }
                     Text(shop.name)
                         .font(Font.custom("Tamil MN Bold", size: 35))
                         .padding(.top, 30)
@@ -50,6 +54,7 @@ struct ShopDetailView: View {
                             .font(Font.custom("Tamil MN Bold", size: 23))
                         Spacer()
                     }
+                    .padding(.bottom, 10)
                     
                     ForEach(coupons) { coupon in
                         CouponView(coupon: coupon)

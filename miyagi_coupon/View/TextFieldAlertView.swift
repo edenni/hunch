@@ -42,13 +42,14 @@ struct TextFieldAlertView: UIViewControllerRepresentable {
         context.coordinator.alert = alert
         
         alert.addTextField { textField in
-            textField.placeholder = placeholder
+            textField.placeholder = "E-mail address"
             textField.text = un
             textField.delegate = context.coordinator
             textField.isSecureTextEntry = isSecureTextEntry
         }
+        
         alert.addTextField { textField in
-            textField.placeholder = placeholder
+            textField.placeholder = "Password"
             textField.text = pw
             textField.delegate = context.coordinator
             textField.isSecureTextEntry = isSecureTextEntry

@@ -45,19 +45,47 @@ struct IdentifiablePlace: Identifiable {
 
 struct ShopMapView: View {
     @ObservedObject var locationManager = LocationManager()
-    let place = IdentifiablePlace(lat: 38.264802, long: 140.878150)
+    let place = IdentifiablePlace(lat: 38.264802, long: 140.880050)
+    @State private var showDetail = false
     
     var body: some View {
-        Map(coordinateRegion: $locationManager.region,
-            showsUserLocation: true,
-            annotationItems: [place]) {
-            place in
-                MapAnnotation(coordinate: place.location) {
-                    Rectangle().stroke(Color.blue)
-                    .frame(width: 20, height: 20)
+        NavigationView {
+            ZStack(alignment:.bottom) {
+                Button(action: {
+                    showDetail = false
+                    print("clicked")
+                }) {
+                    Spacer()
                 }
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+                
+                Map(coordinateRegion: $locationManager.region,
+                    showsUserLocation: true,
+                    annotationItems: [place]) {
+                    place in
+                        MapAnnotation(coordinate: place.location) {
+                            Button(action: {
+                                showDetail.toggle()
+                            }) {
+                                Image(systemName: "mappin")
+                                    .resizable()
+                            }
+                            .frame(width: 10, height: 30)
+                        }
+                }
+                if showDetail {
+                    ZStack {
+                        
+                        NavigationLink(destination: ShopDetailView(shop: Shop.data[0], coupons: Coupon.data)) {
+                            ShopListItem(shop: Shop.data[0])
+                        }
+                        
+                    }
+                    .padding(.bottom, 120)
+                }
+            }
+            .edgesIgnoringSafeArea(.all)
         }
-        .edgesIgnoringSafeArea(.all)
     }
     
 }

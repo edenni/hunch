@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A18572F4FEC7D011F59BE81 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A915C7424164321D6D5988CD /* amplifyconfiguration.json */; };
+		EDAC9D5FF47DBEEF251551CC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E7404AE3EB3AB05143C2CC /* awsconfiguration.json */; };
 		F25196C626A309DF0086E3F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196C526A309DF0086E3F7 /* ContentView.swift */; };
 		F25196C826A30AB00086E3F7 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196C726A30AB00086E3F7 /* SettingView.swift */; };
 		F25196CB26A30CEE0086E3F7 /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25196CA26A30CEE0086E3F7 /* Color+hex.swift */; };
@@ -30,6 +32,8 @@
 		F261FDC926A1DA9000901051 /* ShopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDC826A1DA9000901051 /* ShopDetailView.swift */; };
 		F261FDCE26A1DBBC00901051 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDCD26A1DBBC00901051 /* Shop.swift */; };
 		F261FDD126A1DCF400901051 /* ShopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F261FDD026A1DCF400901051 /* ShopListViewModel.swift */; };
+		F27C7EBB26B3CBC70072CC7A /* TextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EBA26B3CBC70072CC7A /* TextFieldAlertView.swift */; };
+		F27C7EBF26B71C700072CC7A /* MTSlideToOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27C7EBE26B71C700072CC7A /* MTSlideToOpen.swift */; };
 		F29602D126A477D200F1464B /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29602D026A477D200F1464B /* CouponView.swift */; };
 		F29602D326A477E100F1464B /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29602D226A477E100F1464B /* Coupon.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54E7404AE3EB3AB05143C2CC /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		A915C7424164321D6D5988CD /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		F25196C526A309DF0086E3F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F25196C726A30AB00086E3F7 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F25196CA26A30CEE0086E3F7 /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 		F261FDC826A1DA9000901051 /* ShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailView.swift; sourceTree = "<group>"; };
 		F261FDCD26A1DBBC00901051 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		F261FDD026A1DCF400901051 /* ShopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListViewModel.swift; sourceTree = "<group>"; };
+		F27C7EBA26B3CBC70072CC7A /* TextFieldAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldAlertView.swift; sourceTree = "<group>"; };
+		F27C7EBE26B71C700072CC7A /* MTSlideToOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSlideToOpen.swift; sourceTree = "<group>"; };
 		F29602D026A477D200F1464B /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
 		F29602D226A477E100F1464B /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		F29602D926A59B9E00F1464B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -105,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18FCC798CC7C8BA61E606CF8 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				54E7404AE3EB3AB05143C2CC /* awsconfiguration.json */,
+				A915C7424164321D6D5988CD /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
 		F25196C926A30CC50086E3F7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +147,7 @@
 				F25EFD5F26917A220025C748 /* miyagi_couponTests */,
 				F25EFD6A26917A220025C748 /* miyagi_couponUITests */,
 				F25EFD4C26917A170025C748 /* Products */,
+				18FCC798CC7C8BA61E606CF8 /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +206,7 @@
 		F261FDC526A1D90100901051 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F27C7EBA26B3CBC70072CC7A /* TextFieldAlertView.swift */,
 				F25EFD79269192520025C748 /* ShopListItem.swift */,
 				F261FDC626A1D9F300901051 /* ShopListView.swift */,
 				F261FDC826A1DA9000901051 /* ShopDetailView.swift */,
@@ -196,6 +215,7 @@
 				F25196DC26A3F32F0086E3F7 /* ShopMapView.swift */,
 				F25196E026A4154E0086E3F7 /* VersionView.swift */,
 				F29602D026A477D200F1464B /* CouponView.swift */,
+				F27C7EBE26B71C700072CC7A /* MTSlideToOpen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,8 +253,6 @@
 			dependencies = (
 			);
 			name = miyagi_coupon;
-			packageProductDependencies = (
-			);
 			productName = miyagi_coupon;
 			productReference = F25EFD4B26917A170025C748 /* miyagi_coupon.app */;
 			productType = "com.apple.product-type.application";
@@ -307,8 +325,6 @@
 				ja,
 			);
 			mainGroup = F25EFD4226917A170025C748;
-			packageReferences = (
-			);
 			productRefGroup = F25EFD4C26917A170025C748 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,6 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25196DA26A362290086E3F7 /* Tamil MN.ttc in Resources */,
+				EDAC9D5FF47DBEEF251551CC /* awsconfiguration.json in Resources */,
+				9A18572F4FEC7D011F59BE81 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,9 +378,11 @@
 				F25196C626A309DF0086E3F7 /* ContentView.swift in Sources */,
 				F25196CB26A30CEE0086E3F7 /* Color+hex.swift in Sources */,
 				F25196C826A30AB00086E3F7 /* SettingView.swift in Sources */,
+				F27C7EBF26B71C700072CC7A /* MTSlideToOpen.swift in Sources */,
 				F25EFD7A269192520025C748 /* ShopListItem.swift in Sources */,
 				F261FDD126A1DCF400901051 /* ShopListViewModel.swift in Sources */,
 				F25196DD26A3F32F0086E3F7 /* ShopMapView.swift in Sources */,
+				F27C7EBB26B3CBC70072CC7A /* TextFieldAlertView.swift in Sources */,
 				F261FDCE26A1DBBC00901051 /* Shop.swift in Sources */,
 				F25196D126A3551D0086E3F7 /* UIScreen+ScreenSize.swift in Sources */,
 				F261FDC726A1D9F300901051 /* ShopListView.swift in Sources */,
