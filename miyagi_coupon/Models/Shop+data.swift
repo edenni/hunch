@@ -19,6 +19,12 @@ import SwiftUI
 //}
 
 extension Shop: Identifiable {
+    public var distance: Double {
+        get {
+            LocationManager.shared.computeDistance(to: self)
+        }
+    }
+    
     static var data: [Shop] {
         [
             Shop(name: "お肉本舗 本店", image: "yakiniku", latitude: 38.264802, longitude: 140.880050),

@@ -20,23 +20,23 @@ struct IdentifiablePlace: Identifiable {
 }
 
 struct ShopMapView: View {
-    @ObservedObject var locationManager = LocationManager()
-    @State private var showDetail = false
+    @ObservedObject private var locationManager: LocationManager
+    @ObservedObject private var shopViewModel: ShopViewModel
+    @State private var showDetail: Bool
+    @State var places: [IdentifiablePlace]
     
-    let places: [IdentifiablePlace] = Shop.data.map() { shop in
-        IdentifiablePlace(lat: shop.latitude!, long: shop.longitude!)
-    }
-    
-    init() {
+    init(shopViewModel: ShopViewModel) {
+        self.showDetail = false
+        self.locationManager = LocationManager.shared
+        self.shopViewModel = shopViewModel
+        self.places = shopViewModel.nearByShops.map { shop in
+            IdentifiablePlace(lat: shop.latitude!, long: shop.longitude!)
+        }
+        
         NotificationManager.shared.requestAuthorization { granted in
           if granted {
              print("auth granted")
           }
-        }
-        
-        // register shops notifications
-        for shop in Shop.data {
-            NotificationManager.shared.schedeuleNotification(shop: shop)
         }
     }
     
@@ -84,6 +84,6 @@ struct ShopMapView: View {
 
 struct ShopMapView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopMapView()
+        ShopMapView(shopViewModel: ShopViewModel())
     }
 }

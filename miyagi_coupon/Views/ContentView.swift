@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    var shopViewModel = ShopViewModel()
+    
     var body: some View {
         TabView {
-            ShopListView(shops: Shop.data)
+            ShopListView(shopViewModel: shopViewModel)
                 .tabItem {
                     Image(systemName: "house")
                     Text("ホーム")
                 }
-            ShopMapView()
+            ShopMapView(shopViewModel: shopViewModel)
                 .tabItem {
                     Image(systemName: "map")
                     Text("マップ")

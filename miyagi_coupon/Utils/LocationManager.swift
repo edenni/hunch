@@ -13,6 +13,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     private let shopViewModel = ShopViewModel()
     
+    static var shared = LocationManager()
+    
     override init() {
         super.init()
         locationManager.requestAlwaysAuthorization()

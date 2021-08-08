@@ -35,7 +35,7 @@ class NotificationManager: ObservableObject {
             return
         }
         
-        let center = CLLocationCoordinate2D(latitude: shop.latitude, longitude: shop.longitude)
+        let center = CLLocationCoordinate2D(latitude: shop.latitude!, longitude: shop.longitude!)
         let region = CLCircularRegion(center: center, radius: 300, identifier: shop.id)
         region.notifyOnEntry = true
         region.notifyOnExit = false

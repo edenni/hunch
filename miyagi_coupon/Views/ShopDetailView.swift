@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ShopDetailView: View {
     let shop: Shop
@@ -18,7 +19,7 @@ struct ShopDetailView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing:0) {
-                    Image(shop.image)
+                    KFImage(URL(string: shop.image!))
                         .resizable()
                         .frame(width:sw, height: 0.75*sw)
 //                    HStack {
@@ -40,7 +41,7 @@ struct ShopDetailView: View {
                         Text(String(shop.distance)+"m")
                         Spacer().frame(width:20)
                         Image(systemName: "yensign.circle")
-                        Text(shop.values)
+                        Text(String("\(shop.min_budget) - \(shop.max_budget)"))
                     }
                     .font(Font.custom("Tamil MN Bold", size: 19))
                     .foregroundColor(Color(hex: 0x7b7b7b))

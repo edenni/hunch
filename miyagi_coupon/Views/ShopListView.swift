@@ -10,9 +10,15 @@ import UIKit
 
 
 struct ShopListView: View {
-//    @ObservedObject var viewModel: ShopListViewModel
-    let shops: [Shop]
+    @ObservedObject var shopViewModel: ShopViewModel
+    private var shops: [Shop] {
+        get { shopViewModel.nearByShops }
+    }
     let screenWidth = UIScreen.screenWidth
+    
+    init(shopViewModel: ShopViewModel) {
+        self.shopViewModel = shopViewModel
+    }
     
     var body: some View {
         NavigationView{
@@ -59,6 +65,6 @@ struct FlatLinkStyle: ButtonStyle {
 
 struct ShopListView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopListView(shops: Shop.data)
+        ShopListView(shopViewModel: ShopViewModel())
     }
 }

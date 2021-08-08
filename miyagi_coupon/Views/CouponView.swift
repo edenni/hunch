@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CouponView: View {
     let coupon : Coupon
@@ -32,10 +33,10 @@ struct CouponView: View {
                             }
                             .padding(10)
                             HStack(alignment:.top) {
-                                Image(coupon.image)
+                                KFImage(URL(string: coupon.image!))
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                Text(coupon.detail)
+                                Text(coupon.detail!)
                                     .font(Font.custom("Tamil MN", size: 12))
                             }
                         }

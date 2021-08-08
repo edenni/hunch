@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 import Amplify
 
-class ShopViewModel: ObservableObject {
+final class ShopViewModel: ObservableObject {
     let timeInterval: Double = 60.0
     @Published public var nearByShops: [Shop] = []
     @Published public var distances: [String:Double] = [:]
@@ -24,10 +24,18 @@ class ShopViewModel: ObservableObject {
             resetCandidates()
             
             // set nearby shops
+            nearByShops.removeAll()
+            for shop in candidateShops {
+                if locationManager.computeDistance(to: shop) < 300 {
+                    nearByShops.append(shop)
+                }
+            }
             
-            // 
+            // register shops notifications
+            for shop in candidateShops {
+                NotificationManager.shared.scheduleNotification(shop: shop)
+            }
         }
-           
     }
     
     func resetCandidates() {
