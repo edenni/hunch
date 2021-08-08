@@ -10,15 +10,16 @@ import MapKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion()
-    private let manager = CLLocationManager()
+    private let locationManager = CLLocationManager()
+    private let shopViewModel = ShopViewModel()
     
     override init() {
         super.init()
-        manager.requestAlwaysAuthorization()
+        locationManager.requestAlwaysAuthorization()
 //        manager.requestWhenInUseAuthorization()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -26,15 +27,25 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let center = CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             region = MKCoordinateRegion(center: center, span: span)
-            
-            let places = Shop.data.map() { shop in
-                CLLocation(latitude: shop.latitude, longitude: shop.longitude)
-            }
-            for place in places {
-                print(place.distance(from: CLLocation(latitude: center.latitude, longitude: center.longitude)))
-            }
         }
     }
     
+    func computeAllDistance(to shops: [Shop]) -> [Double] {
+//      print distances from each shop to current location
+        let places = shops.map() { shop in
+            CLLocation(latitude: shop.latitude!, longitude: shop.longitude!)
+        }
+        
+        return places.map { place in
+            place.distance(from: CLLocation(latitude: region.center.latitude,
+                                                  longitude: region.center.longitude))
+        }
+    }
     
+    func computeDistance(to shop: Shop) -> Double {
+        CLLocation(latitude: shop.latitude!, longitude: shop.longitude!)
+            .distance(from:
+                        CLLocation(latitude: region.center.latitude,
+                                   longitude: region.center.longitude))
+    }
 }

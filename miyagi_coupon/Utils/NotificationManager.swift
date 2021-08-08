@@ -13,9 +13,9 @@ class NotificationManager: ObservableObject {
     static var shared = NotificationManager()
     
     func requestAuthorization(completion: @escaping  (Bool) -> Void) {
-      UNUserNotificationCenter.current()
-        .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _  in
-          completion(granted)
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _  in
+                completion(granted)
         }
     }
     

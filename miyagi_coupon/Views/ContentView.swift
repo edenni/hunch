@@ -20,7 +20,7 @@ struct ContentView: View {
                     Image(systemName: "map")
                     Text("マップ")
                 }
-            SettingView()
+            SettingView(signinmodel: SignInViewModel(userSession: UserSession()))
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("設定")

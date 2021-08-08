@@ -21,20 +21,22 @@ struct IdentifiablePlace: Identifiable {
 
 struct ShopMapView: View {
     @ObservedObject var locationManager = LocationManager()
-    let places: [IdentifiablePlace] = Shop.data.map() { shop in
-        IdentifiablePlace(lat: shop.latitude, long: shop.longitude)
-    }
     @State private var showDetail = false
+    
+    let places: [IdentifiablePlace] = Shop.data.map() { shop in
+        IdentifiablePlace(lat: shop.latitude!, long: shop.longitude!)
+    }
     
     init() {
         NotificationManager.shared.requestAuthorization { granted in
-          // 2
           if granted {
              print("auth granted")
           }
         }
-        Shop.data.map() { shop in
-            NotificationManager.shared.scheduleNotification(shop: shop)
+        
+        // register shops notifications
+        for shop in Shop.data {
+            NotificationManager.shared.schedeuleNotification(shop: shop)
         }
     }
     

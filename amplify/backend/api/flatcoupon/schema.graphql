@@ -1,0 +1,35 @@
+type Coupon @model @auth(rules: [{allow: public}]) @key(name: "byShop", fields: ["shopID"]) {
+  id: ID!
+  shopID: ID
+  name: String!
+  image: AWSURL
+  detail: String
+}
+
+type User @model @auth(rules: [{allow: public, operations: [read, update]}]) {
+  id: ID!
+  username: String
+  Shops: [Shop] @connection(keyName: "byUser", fields: ["id"])
+  email: AWSEmail!
+  sub: String
+  phone_number: AWSPhone
+}
+
+type Shop @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["shopmasterID"]) {
+  id: ID!
+  name: String!
+  image: AWSURL
+  location: String
+  max_budget: Int
+  min_budget: String
+  massage: String
+  area: String
+  site_url: AWSURL
+  phone_nunber: AWSPhone
+  email: AWSEmail
+  shopmasterID: ID
+  Coupons: [Coupon] @connection(keyName: "byShop", fields: ["id"])
+  latitude: Float
+  longitude: Float
+}
+ 

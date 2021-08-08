@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-flatcoupon-staging-62323-authRole",
+      "UnauthRoleArn": "arn:aws:iam::718600458157:role/amplify-flatcoupon-staging-62323-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::718600458157:role/amplify-flatcoupon-staging-62323-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-flatcoupon-staging-62323-deployment",
+      "UnauthRoleName": "amplify-flatcoupon-staging-62323-unauthRole",
+      "StackName": "amplify-flatcoupon-staging-62323",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:718600458157:stack/amplify-flatcoupon-staging-62323/a30a9ec0-f5b5-11eb-a286-0a26219393d7",
+      "AmplifyAppId": "d386petp1qank3"
+    },
+    "categories": {
+      "auth": {
+        "flatcoupon": {}
+      }
+    }
+  }
+}

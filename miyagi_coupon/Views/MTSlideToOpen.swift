@@ -34,7 +34,7 @@ struct MTSlideToOpen: View {
         
         var reachEnd: Bool {
             switch self {
-            case .ready, .dragging(_):
+            case .ready, .dragging(_, _):
                 return false
             case .end(_):
                 return true
@@ -43,7 +43,7 @@ struct MTSlideToOpen: View {
         
         var isReady: Bool {
             switch self {
-            case .dragging(_), .end(_):
+            case .dragging(_, _), .end(_):
                 return false
             case .ready:
                 return true
@@ -54,7 +54,7 @@ struct MTSlideToOpen: View {
               switch self {
               case .ready:
                 return 0.0
-              case .dragging(let (offsetX,_)):
+              case .dragging(let offsetX, _):
                   return offsetX
               case .end(let offsetX):
                   return offsetX
@@ -65,7 +65,7 @@ struct MTSlideToOpen: View {
             switch self {
             case .ready:
                 return 1.0
-            case.dragging(let (offsetX,maxX)):
+            case.dragging(let offsetX, let maxX):
                 return 1.0 - Double(offsetX / maxX)
             case .end(_):
                 return 0.0
@@ -135,7 +135,7 @@ struct MTSlideToOpen: View {
     
     private func onDragEnded(drag: DragGesture.Value) {
         switch draggableState {
-        case .end(_), .dragging(_):
+        case .end(_), .dragging(_, _):
             draggableState = .ready
             
             break

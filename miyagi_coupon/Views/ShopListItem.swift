@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import UIKit
-
+import Kingfisher
 
 struct ShopListItem: View {
     let shop: Shop
@@ -16,7 +16,7 @@ struct ShopListItem: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Image(shop.imageUrl)
+            KFImage(URL(string: shop.image!))
                 .resizable()
                 .frame(width: cardwidth, height: cardwidth*0.75, alignment: .center)
             HStack {

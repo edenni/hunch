@@ -6,13 +6,27 @@
 //
 
 import UIKit
+import Amplify
+import AWSCognitoAuthPlugin
+import AWSAPIPlugin
+import Combine
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(
     _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     configureUserNotifications()
+    
+    do {
+        try Amplify.add(plugin: AWSCognitoAuthPlugin())
+        try Amplify.add(plugin: AWSAPIPlugin(modelRegistration: AmplifyModels()))
+        try Amplify.configure()
+        print("Amplify configured with auth plugin")
+    } catch {
+        print("Failed to initialize Amplify with \(error)")
+    }
+    
     return true
   }
 }
@@ -30,5 +44,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   private func configureUserNotifications() {
     UNUserNotificationCenter.current().delegate = self
   }
-
 }

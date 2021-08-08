@@ -8,19 +8,16 @@
 import Foundation
 import SwiftUI
 import Combine
+import Amplify
 
 final class ShopListViewModel: ObservableObject {
-    @Published private(set) var shops: [Shop] = []
     
-    enum Input {
-        case onAppear
+    @ObservedObject private var locationManager = LocationManager()
+    
+    init() {
+        resetCandidates()
+        
     }
     
-    func apply(_ input: Input) {
-        switch input {
-        case .onAppear: onAppearSubject.send(())
-        }
-    }
     
-    private let onAppearSubject = PassthroughSubject<Void, Never>()
 }

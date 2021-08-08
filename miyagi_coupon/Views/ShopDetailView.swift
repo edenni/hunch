@@ -18,7 +18,7 @@ struct ShopDetailView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing:0) {
-                    Image(shop.imageUrl)
+                    Image(shop.image)
                         .resizable()
                         .frame(width:sw, height: 0.75*sw)
 //                    HStack {

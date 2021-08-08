@@ -9,11 +9,10 @@ import SwiftUI
 
 struct TextFieldAlertView: UIViewControllerRepresentable {
     
-    @Binding var un: String
-    @Binding var pw: String
+    @Binding var username: String
+    @Binding var password: String
     @Binding var isShowingAlert: Bool
     
-    let placeholder: String
     let isSecureTextEntry: Bool
     let title: String
     let message: String
@@ -43,14 +42,14 @@ struct TextFieldAlertView: UIViewControllerRepresentable {
         
         alert.addTextField { textField in
             textField.placeholder = "E-mail address"
-            textField.text = un
+            textField.text = username
             textField.delegate = context.coordinator
-            textField.isSecureTextEntry = isSecureTextEntry
+            textField.isSecureTextEntry = false
         }
         
         alert.addTextField { textField in
             textField.placeholder = "Password"
-            textField.text = pw
+            textField.text = password
             textField.delegate = context.coordinator
             textField.isSecureTextEntry = isSecureTextEntry
         }
@@ -66,8 +65,9 @@ struct TextFieldAlertView: UIViewControllerRepresentable {
         
         if rightButtonTitle != nil {
             alert.addAction(UIAlertAction(title: rightButtonTitle, style: .default) { _ in
-                if let textField = alert.textFields?.first, let text = textField.text {
-                    self.un = text
+                if let username = alert.textFields?.first?.text, let password = alert.textFields?.last?.text{
+                    self.username = username
+                    self.password = password
                 }
                 alert.dismiss(animated: true) {
                     isShowingAlert = false
@@ -99,9 +99,9 @@ struct TextFieldAlertView: UIViewControllerRepresentable {
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             if let text = textField.text as NSString? {
-                self.view.un = text.replacingCharacters(in: range, with: string)
+                self.view.username = text.replacingCharacters(in: range, with: string)
             } else {
-                self.view.un = ""
+                self.view.username = ""
             }
             return true
         }
