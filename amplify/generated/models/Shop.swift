@@ -8,7 +8,7 @@ public struct Shop: Model {
   public var image: String?
   public var location: String?
   public var max_budget: Int?
-  public var min_budget: String?
+  public var min_budget: Int?
   public var massage: String?
   public var area: String?
   public var site_url: String?
@@ -26,7 +26,7 @@ public struct Shop: Model {
       image: String? = nil,
       location: String? = nil,
       max_budget: Int? = nil,
-      min_budget: String? = nil,
+      min_budget: Int? = nil,
       massage: String? = nil,
       area: String? = nil,
       site_url: String? = nil,
@@ -59,7 +59,7 @@ public struct Shop: Model {
       image: String? = nil,
       location: String? = nil,
       max_budget: Int? = nil,
-      min_budget: String? = nil,
+      min_budget: Int? = nil,
       massage: String? = nil,
       area: String? = nil,
       site_url: String? = nil,

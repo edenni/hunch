@@ -10,14 +10,13 @@ enum AuthenticationState {
 }
 
 public final class AuthenticationService {
-    var userSession: UserSession
     var cancellable: AnyCancellable?
     
-    init(userSession: UserSession) {
-      self.userSession = userSession
-    }
+    static var shared = AuthenticationService()
+    private init() {}
     
-    func signIn(as email: String, identifiedBy password: String) -> Future<AuthenticationState, Error> {
+    func signIn(as email: String, identifiedBy password: String) -> AnyPublisher<User, Error> {
+        print(email, password)
         return Future { promise in
           _ = Amplify.Auth.signIn(username: email, password: password) {[self] result in
             switch result {
@@ -51,19 +50,19 @@ public final class AuthenticationService {
                                                     phone_number: nil)
                                     
                                     // send request
-                                    _ = Amplify.API.mutate(request: .create(user)) { [self] event in
+                                    _ = Amplify.API.mutate(request: .create(user)) { event in
                                             switch event {
                                             case .failure(let error):
-                                                signOut()
+//                                                signOut()
                                                 return promise(.failure(error))
                                             case .success(let result):
                                                 switch result {
                                                 case .failure(let error):
-                                                    signOut()
+//                                                    signOut()
                                                     return promise(.failure(error))
                                                 case .success(let user):
-                                                    setUserSessionData(user)
-                                                    promise(.success(.signedIn))
+//                                                    setUserSessionData(user)
+                                                    promise(.success(user))
                                                 }
                                             }
                                     }
@@ -84,40 +83,44 @@ public final class AuthenticationService {
                   .sink(receiveCompletion: { completion in
                     switch completion {
                     case .failure(let error):
-                      signOut()
+//                      signOut()
                       promise(.failure(error))
                     case .finished: ()
                     }
                   }, receiveValue: { user in
-                    setUserSessionData(user)
-                    promise(.success(.signedIn))
+//                    setUserSessionData(user)
+                    promise(.success(user))
                   })
             }
           }
         }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
     
-    func signOut() {
-        setUserSessionData(nil)
-        _ = Amplify.Auth.signOut { result in
-          switch result {
-          case .failure(let error):
-            print(error)
-          default:
-            break
-          }
+    func signOut() -> Future<User, Error> {
+//        setUserSessionData(nil)
+        return Future { promise in
+                Amplify.Auth.signOut { result in
+              switch result {
+              case .failure(let error):
+                promise(.failure(error))
+              default:
+                break
+              }
+            }
         }
     }
-
-    private func setUserSessionData(_ user: User?) {
-        DispatchQueue.main.async {
-          if let user = user {
-            self.userSession.loggedInUser = user
-          } else {
-            self.userSession.loggedInUser = nil
-          }
-        }
-    }
+//
+//    private func setUserSessionData(_ user: User?) {
+//        DispatchQueue.main.async {
+//          if let user = user {
+//            self.userSession.loggedInUser = user
+//          } else {
+//            self.userSession.loggedInUser = nil
+//          }
+//        }
+//    }
 
     private func fetchUserModel(id: String) -> Future<User, Error> {
         Future { promise in
@@ -143,5 +146,25 @@ public final class AuthenticationService {
                 }
             }
         }
+    }
+    
+    public func currentUser() -> AnyPublisher<User, Error>? {
+        guard let authUser = Amplify.Auth.getCurrentUser() else {
+            return nil
+        }
+        return Future { [self] promise in
+            cancellable = fetchUserModel(id: authUser.userId)
+              .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                  promise(.failure(error))
+                case .finished: ()
+                }
+              }, receiveValue: { user in
+                promise(.success(user))
+              })
+        }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
 }

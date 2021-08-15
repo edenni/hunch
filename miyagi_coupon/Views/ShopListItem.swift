@@ -37,7 +37,7 @@ struct ShopListItem: View {
                         Text(String(shop.distance)+"m")
                         Spacer().frame(width:20)
                         Image(systemName: "yensign.circle")
-                        Text(String("\(shop.min_budget) - \(shop.max_budget)"))
+                        Text("\(shop.min_budget ?? 0) - \(shop.max_budget ?? 0)")
                     }
                     .font(Font.custom("Tamil MN Bold", size: 19))
                     .foregroundColor(Color(hex: 0x7b7b7b))

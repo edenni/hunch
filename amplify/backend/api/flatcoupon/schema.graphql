@@ -21,7 +21,7 @@ type Shop @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["
   image: AWSURL
   location: String
   max_budget: Int
-  min_budget: String
+  min_budget: Int
   massage: String
   area: String
   site_url: AWSURL

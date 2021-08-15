@@ -10,15 +10,11 @@ import UIKit
 
 
 struct ShopListView: View {
-    @ObservedObject var shopViewModel: ShopViewModel
+    @ObservedObject var shopViewModel: ShopViewModel = ShopViewModel.shared
     private var shops: [Shop] {
         get { shopViewModel.nearByShops }
     }
     let screenWidth = UIScreen.screenWidth
-    
-    init(shopViewModel: ShopViewModel) {
-        self.shopViewModel = shopViewModel
-    }
     
     var body: some View {
         NavigationView{
@@ -41,8 +37,8 @@ struct ShopListView: View {
                             .font(Font.custom("Tamil MN Bold", size: 35))
                             .foregroundColor(Color(hex: 0x4a4a4a))
                         
-                        ForEach(shops) { shop in
-                            NavigationLink(destination: ShopDetailView(shop: shop, coupons: Coupon.data)) {
+                        ForEach($shopViewModel.nearByShops.wrappedValue) { shop in
+                            NavigationLink(destination: ShopDetailView(shop: shop, coupons: shop.Coupons!.elements)) {
                                 ShopListItem(shop: shop)
                                     .padding(10)
                             }
@@ -63,8 +59,8 @@ struct FlatLinkStyle: ButtonStyle {
     }
 }
 
-struct ShopListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopListView(shopViewModel: ShopViewModel())
-    }
-}
+//struct ShopListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopListView(shopViewModel: ShopViewModel())
+//    }
+//}

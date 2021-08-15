@@ -9,6 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct ShopDetailView: View {
+    @EnvironmentObject var store: Store
+    var currentUser: User? { store.appState.settings.loginUser
+    }
     let shop: Shop
     let coupons: [Coupon]
     let sw = UIScreen.screenWidth
@@ -22,11 +25,15 @@ struct ShopDetailView: View {
                     KFImage(URL(string: shop.image!))
                         .resizable()
                         .frame(width:sw, height: 0.75*sw)
-//                    HStack {
-//                        Spacer()
-//                        Image(systemName: "square.and.pencil")
-//                        Image(systemName: "lock")
-//                    }
+                    
+                    if (currentUser != nil) && shop.shopmasterID == currentUser?.sub {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "square.and.pencil")
+                            Image(systemName: "lock")
+                        }
+                    }
+                    
                     Text(shop.name)
                         .font(Font.custom("Tamil MN Bold", size: 35))
                         .padding(.top, 30)
@@ -41,7 +48,7 @@ struct ShopDetailView: View {
                         Text(String(shop.distance)+"m")
                         Spacer().frame(width:20)
                         Image(systemName: "yensign.circle")
-                        Text(String("\(shop.min_budget) - \(shop.max_budget)"))
+                        Text("\(shop.min_budget ?? 0) - \(shop.max_budget ?? 0)")
                     }
                     .font(Font.custom("Tamil MN Bold", size: 19))
                     .foregroundColor(Color(hex: 0x7b7b7b))

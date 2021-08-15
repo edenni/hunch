@@ -10,21 +10,35 @@ import Combine
 import Amplify
 
 struct SettingView: View {
+    @EnvironmentObject var store: Store
+    var settingsBinding: Binding<AppState.Settings> {
+        $store.appState.settings
+    }
+    var settings: AppState.Settings {
+        store.appState.settings
+    }
+    
     @State private var showMessage = true
     @State private var isEnglish = false
     @State private var isShowingAlert = false
     
-    @ObservedObject var signinmodel: SignInViewModel
-    @State private var buttonText: String
-
-    init(signinmodel: SignInViewModel) {
-        self.signinmodel = signinmodel
-        switch signinmodel.state {
-        case .signedIn:
-            buttonText = "ログアウト"
-        default:
-            buttonText = "店舗管理者としてログイン"
-        }
+//    @ObservedObject var signinmodel: SignInViewModel
+//    @State private var buttonText: String = "店舗管理者としてログイン"
+    
+    init() {
+//        self.signinmodel = signinmodel
+//        switch signinmodel.state {
+//        case .signedIn:
+//            buttonText = "ログアウト"
+//        default:
+//            buttonText = "店舗管理者としてログイン"
+//        }
+        
+//        if settings?.loginUser == nil {
+//            buttonText = "ログアウト"
+//        } else {
+//            buttonText = "店舗管理者としてログイン"
+//        }
     }
     
     var body: some View {
@@ -41,13 +55,18 @@ struct SettingView: View {
                     }
                     .frame(height: 250)
                     Spacer()
-                    switch signinmodel.state {
-                    case .nosignin:
-                        LoginButton(isShowingAlert: isShowingAlert, signinmodel: signinmodel)
-                    case .signedIn:
-                        LogoutButton(signinmodel: signinmodel)
-                    default:
-                        Text("Login Error")
+//                    switch signinmodel.state {
+//                    case .nosignin:
+//                        LoginButton(isShowingAlert: isShowingAlert, signinmodel: signinmodel)
+//                    case .signedIn:
+//                        LogoutButton(signinmodel: signinmodel)
+//                    default:
+//                        Text("Login Error")
+//                    }
+                    if settings.loginUser == nil {
+                        LoginButton(isShowingAlert: isShowingAlert, settingsBinding: settingsBinding)
+                    } else {
+                        LogoutButton(settingsBinding: settingsBinding)
                     }
                     Spacer()
                 }
@@ -59,7 +78,12 @@ struct SettingView: View {
 
 struct LoginButton: View {
     @State var isShowingAlert: Bool
-    @ObservedObject var signinmodel: SignInViewModel
+    var settingsBinding: Binding<AppState.Settings>
+    var settings: AppState.Settings {
+        store.appState.settings
+    }
+    @EnvironmentObject var store: Store
+    
     var body: some View {
         Button("店舗管理者としてログイン") {
             isShowingAlert = true
@@ -69,8 +93,8 @@ struct LoginButton: View {
             RoundedRectangle(cornerRadius: 16)
             .stroke(Color.black, lineWidth: 1))
         TextFieldAlertView(
-            username: $signinmodel.username,
-            password: $signinmodel.password,
+            username: settingsBinding.email,
+            password: settingsBinding.password,
             isShowingAlert: $isShowingAlert,
             isSecureTextEntry: true,
             title: "認証",
@@ -79,19 +103,22 @@ struct LoginButton: View {
             rightButtonTitle: "ログイン",
             leftButtonAction: nil,
             rightButtonAction: {
-                signinmodel.signIn()
-                print(signinmodel.state)
+                self.store.dispatch(.login(email: settings.email, password: settings.password))
             }
         )
     }
 }
 
 struct LogoutButton: View {
-    @ObservedObject var signinmodel: SignInViewModel
+//    @ObservedObject var signinmodel: SignInViewModel
+    var settingsBinding: Binding<AppState.Settings>
+    @EnvironmentObject var store: Store
+    
     var body: some View {
         Button("ログアウト") {
-            signinmodel.signOut()
-            print(signinmodel.state)
+//            signinmodel.signOut()
+//            print(signinmodel.state)
+            self.store.dispatch(.logout)
         }
         .frame(width: 250, height: 60, alignment: .center)
         .overlay(
@@ -100,8 +127,8 @@ struct LogoutButton: View {
     }
 }
 
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView(signinmodel: SignInViewModel(userSession: UserSession()))
-    }
-}
+//struct SettingView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        SettingView(signinmodel: SignInViewModel(userSession: UserSession()))
+//    }
+//}

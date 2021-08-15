@@ -11,7 +11,6 @@ import MapKit
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion()
     private let locationManager = CLLocationManager()
-    private let shopViewModel = ShopViewModel()
     
     static var shared = LocationManager()
     
@@ -45,9 +44,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func computeDistance(to shop: Shop) -> Double {
-        CLLocation(latitude: shop.latitude!, longitude: shop.longitude!)
+        return CLLocation(latitude: shop.latitude!, longitude: shop.longitude!)
             .distance(from:
                         CLLocation(latitude: region.center.latitude,
-                                   longitude: region.center.longitude))
+                                   longitude: region.center.longitude)) as Double
     }
 }

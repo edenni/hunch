@@ -8,37 +8,13 @@
 import SwiftUI
 import MapKit
 
-struct IdentifiablePlace: Identifiable {
-    let id: UUID
-    let location: CLLocationCoordinate2D
-    init(id: UUID = UUID(), lat: Double, long: Double) {
-        self.id = id
-        self.location = CLLocationCoordinate2D(
-            latitude: lat,
-            longitude: long)
-    }
-}
-
 struct ShopMapView: View {
-    @ObservedObject private var locationManager: LocationManager
-    @ObservedObject private var shopViewModel: ShopViewModel
-    @State private var showDetail: Bool
-    @State var places: [IdentifiablePlace]
+    @ObservedObject private var locationManager: LocationManager = LocationManager.shared
+    @ObservedObject private var shopViewModel: ShopViewModel = ShopViewModel.shared
+    @State private var showDetail: Bool = false
+    @State private var userTrackingMode: MapUserTrackingMode = .follow
+    @State private var currentShop: Shop?
     
-    init(shopViewModel: ShopViewModel) {
-        self.showDetail = false
-        self.locationManager = LocationManager.shared
-        self.shopViewModel = shopViewModel
-        self.places = shopViewModel.nearByShops.map { shop in
-            IdentifiablePlace(lat: shop.latitude!, long: shop.longitude!)
-        }
-        
-        NotificationManager.shared.requestAuthorization { granted in
-          if granted {
-             print("auth granted")
-          }
-        }
-    }
     
     var body: some View {
         NavigationView {
@@ -53,11 +29,17 @@ struct ShopMapView: View {
                 
                 Map(coordinateRegion: $locationManager.region,
                     showsUserLocation: true,
-                    annotationItems: places) {
-                    place in
-                        MapAnnotation(coordinate: place.location) {
+                    userTrackingMode: $userTrackingMode,
+                    annotationItems: shopViewModel.nearByShops) {
+                    shop in
+                        MapAnnotation(coordinate: shop.coordinate) {
                             Button(action: {
                                 showDetail.toggle()
+                                if showDetail {
+                                    currentShop = shop
+                                } else {
+                                    currentShop = nil
+                                }
                             }) {
                                 Image(systemName: "mappin")
                                     .resizable()
@@ -65,12 +47,14 @@ struct ShopMapView: View {
                             .frame(width: 10, height: 30)
                         }
                 }
+                .onTapGesture {
+                    self.showDetail = false
+                }
                 
                 if showDetail {
                     ZStack {
-                        
-                        NavigationLink(destination: ShopDetailView(shop: Shop.data[0], coupons: Coupon.data)) {
-                            ShopListItem(shop: Shop.data[0])
+                        NavigationLink(destination: ShopDetailView(shop: currentShop!, coupons: currentShop!.Coupons!.elements)) {
+                            ShopListItem(shop: currentShop!)
                         }
                         
                     }
@@ -82,8 +66,8 @@ struct ShopMapView: View {
     }
 }
 
-struct ShopMapView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopMapView(shopViewModel: ShopViewModel())
-    }
-}
+//struct ShopMapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopMapView(shopViewModel: ShopViewModel())
+//    }
+//}

@@ -6,23 +6,37 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct ContentView: View {
-    var shopViewModel = ShopViewModel()
+//    var shopViewModel: ShopViewModel
+//    var signInViewModel: SignInViewModel
+//    @EnvironmentObject var userSession: UserSession
+    
+    init() {
+        NotificationManager.shared.requestAuthorization { granted in
+          if granted {
+             print("auth granted")
+          }
+        }
+        
+//        shopViewModel = ShopViewModel()
+//        signInViewModel = SignInViewModel(userSession: UserSession())
+    }
     
     var body: some View {
         TabView {
-            ShopListView(shopViewModel: shopViewModel)
+            ShopListView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("ホーム")
                 }
-            ShopMapView(shopViewModel: shopViewModel)
+            ShopMapView()
                 .tabItem {
                     Image(systemName: "map")
                     Text("マップ")
                 }
-            SettingView(signinmodel: SignInViewModel(userSession: UserSession()))
+            SettingView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("設定")
@@ -32,8 +46,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

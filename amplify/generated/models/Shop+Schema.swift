@@ -46,7 +46,7 @@ extension Shop {
       .field(shop.image, is: .optional, ofType: .string),
       .field(shop.location, is: .optional, ofType: .string),
       .field(shop.max_budget, is: .optional, ofType: .int),
-      .field(shop.min_budget, is: .optional, ofType: .string),
+      .field(shop.min_budget, is: .optional, ofType: .int),
       .field(shop.massage, is: .optional, ofType: .string),
       .field(shop.area, is: .optional, ofType: .string),
       .field(shop.site_url, is: .optional, ofType: .string),

@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-
+import MapKit
 //struct Shop: Decodable, Hashable, Identifiable {
 //    var id = UUID().uuidString
 //    var name: String
@@ -21,13 +21,19 @@ import SwiftUI
 extension Shop: Identifiable {
     public var distance: Double {
         get {
-            LocationManager.shared.computeDistance(to: self)
+            100.0
+        }
+    }
+    
+    public var coordinate: CLLocationCoordinate2D {
+        get {
+            .init(latitude:self.latitude!, longitude:self.longitude!)
         }
     }
     
     static var data: [Shop] {
         [
-            Shop(name: "お肉本舗 本店", image: "yakiniku", latitude: 38.264802, longitude: 140.880050),
+            Shop(name: "お肉本舗 本店", image: "https://www.ozmall.co.jp/Content/upload/images/daff2724080e4b4bb3bb459a2f11827d.jpg", latitude: 38.264802, longitude: 140.880050),
             Shop(name: "居酒屋", image: "izakaya", latitude: 38.264802, longitude: 140.871050),
             Shop(name: "ラーメン", image: "ramen", latitude: 38.264802, longitude: 140.867050)
         ]
